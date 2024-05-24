@@ -4,14 +4,7 @@ const addButton = document.getElementById('add-btn');
 const deleteAllButton = document.getElementById('delete-all-btn');
 const darkModeButton = document.getElementById('dark-mode-btn');
 const logoutButton = document.getElementById('logout-btn');
-const filterAllButton = document.getElementById('filter-all');
-const filterActiveButton = document.getElementById('filter-active');
-const filterCompletedButton = document.getElementById('filter-completed');
-const sortDueDateButton = document.getElementById('sort-due-date');
-const sortPriorityButton = document.getElementById('sort-priority');
-const undoButton = document.getElementById('undo-btn'); // New: Selecting undo button
 const todoList = document.getElementById('todo-list');
-const filterButtons = document.querySelectorAll('#filter-buttons button');
 
 // Initialize todo array from local storage or empty array
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
