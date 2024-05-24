@@ -132,29 +132,6 @@ function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
 }
 
-// Function to filter todos based on completion status
-function filterTodos(status) {
-    let filteredTodos = [];
-    if (status === 'all') {
-        filteredTodos = todos;
-    } else if (status === 'active') {
-        filteredTodos = todos.filter(todo => !todo.completed);
-    } else if (status === 'completed') {
-        filteredTodos = todos.filter(todo => todo.completed);
-    }
-    renderTodoList(filteredTodos);
-}
-
-
-    renderTodoList();
-}
-
-// Function to sort todos by priority
-function sortByPriority() {
-    todos.sort((a, b) => a.priority - b.priority);
-    renderTodoList();
-}
-
 // Initial rendering
 renderTodoList();
 
@@ -165,19 +142,4 @@ darkModeButton.addEventListener('click', toggleDarkMode);
 logoutButton.addEventListener('click', () => {
     // Implement logout functionality
 });
-filterAllButton.addEventListener('click', () => filterTodos('all'));
-filterActiveButton.addEventListener('click', () => filterTodos('active'));
-filterCompletedButton.addEventListener('click', () => filterTodos('completed'));
-sortDueDateButton.addEventListener('click', sortByDueDate);
-sortPriorityButton.addEventListener('click', sortByPriority);
-
-// Add event listeners for filter buttons
-filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-    });
-});
-
-// Add event listener to undo button
-undoButton.addEventListener('click', undo);
+undoButton.addEventListener('click', undo); 
