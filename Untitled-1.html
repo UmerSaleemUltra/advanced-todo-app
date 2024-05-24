@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up & Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+   body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.form-group input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 14px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.form-toggle {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.form-toggle a {
+    color: #4caf50;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.form-toggle a:hover {
+    color: #45a049;
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+    <form id="signupForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Sign Up">
+        </div>
+    </form>
+    <div class="form-toggle">
+         <a href="#" id="toggleLogin">Login</a></span>
+    </div>
+</div>
+
+<div class="container" style="display: none;" id="loginContainer">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="loginUsername">Username</label>
+            <input type="text" id="loginUsername" name="loginUsername" required>
+        </div>
+        <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Login">
+        </div>
+    </form>
+    <div class="form-toggle">
+        <span>Don't have an account? <a href="#" id="toggleSignup"> </a></span>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const signupForm = document.getElementById("signupForm");
+        const loginForm = document.getElementById("loginForm");
+        const loginContainer = document.getElementById("loginContainer");
+
+        document.getElementById("toggleLogin").addEventListener("click", function(event) {
+            event.preventDefault();
+            loginContainer.style.display = "block";
+            signupForm.style.display = "none";
+        });
+
+        document.getElementById("toggleSignup").addEventListener("click", function(event) {
+            event.preventDefault();
+            signupForm.style.display = "block";
+            loginContainer.style.display = "none";
+        });
+
+        signupForm.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            
+            const username = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
+                alert("Please fill in all fields");
+                return;
+            }
+
+            localStorage.setItem("username", username);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+
+            window.location.href = "index.html";
+        });
+
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            
+            const username = document.getElementById("loginUsername").value;
+            const password = document.getElementById("loginPassword").value;
+
+            const storedUsername = localStorage.getItem("username");
+            const storedPassword = localStorage.getItem("password");
+
+            if (username === storedUsername && password === storedPassword) {
+                alert("Login successful!");
+                window.location.href = "index.html";
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

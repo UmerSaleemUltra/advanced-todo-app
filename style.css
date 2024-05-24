@@ -1,0 +1,98 @@
+/* Styles for body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 25px;
+  color: black;
+  font-size: 25px;
+  background-color: #f4f4f4;
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.dark-mode {
+  background-color: #000000;
+  color: white;
+}
+
+/* Styles for container div with ID */
+#todo-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Styles for input */
+input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  outline: none;
+  margin-top: 20px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+  text-align: center;
+  color: #999;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+/* Styles for buttons */
+button {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+}
+
+button.deleteall {
+  background-color: #dc3545;
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+button.deleteall:hover {
+  background-color: #c82333;
+  box-shadow: 0 0 10px rgba(220, 53, 69, 0.5);
+}
+
+/* Styles for Font Awesome icons */
+.fa-icon {
+  margin-right: 5px;
+}
+
+/* Styles for todo list items */
+ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Styles for buttons within todo list items */
+.todo-buttons {
+  display: inline-block;
+}
+
+.todo-buttons button {
+  margin-left: 5px;
+}

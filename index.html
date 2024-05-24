@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <!-- Include Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link your CSS file -->
+</head>
+<body>
+    <div id="todo-container">
+        <input type="text" id="todo" placeholder="Enter your todo">
+        <button id="add-btn"><i class="fas fa-plus"></i></button>
+        <button id="delete-all-btn" class="deleteall"><i class="fas fa-trash"></i> </button>
+        <button id="dark-mode-btn"><i class="fas fa-adjust"></i></button>
+        <a href="Untitled-1.html"><button id="logout-btn"><i class="fas fa-sign-out-alt"></i></button></a>
+        <div id="filter-buttons">
+            <button id="filter-all">All</button>
+            <button id="filter-active">Active</button>
+            <button id="filter-completed">Completed</button>
+            <button id="sort-due-date">Sort by Due Date</button>
+            <button id="sort-priority">Sort by Priority</button>
+        </div>
+        <ul id="todo-list"></ul>
+    </div>
+
+    <script src="todo.js"></script> <!-- Link your JavaScript file -->
+</body>
+</html>
